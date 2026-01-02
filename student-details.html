@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details & Ranks</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            padding: 20px;
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #ffdde1);
+            background-size: 400% 400%;
+            animation: backgroundAnimation 10s ease infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container, .dashboard-container {
+            max-width: 800px;
+            margin: 50px auto 0;
+            padding: 30px;
+            background: linear-gradient(45deg, #9091cc, #6a5acd, #ab98bb, #9f96d1);
+            background-size: 400% 400%;
+            animation: containerGradientAnimation 8s ease infinite;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes containerGradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .dashboard-header {
+            text-align: center;
+            color: #81eed6;
+        }
+
+        .department { margin-bottom: 20px; padding: 10px; border: 1px solid #ddd; }
+        .student { padding: 5px; font-size: 18px; }
+        .rank { font-weight: bold; color: #e74c3c; }
+    </style>
+</head>
+<body>
+
+    <h1>Student Details & Ranks</h1>
+
+
+
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h2>Your College Dashboard</h2>
+            <p>Explore details about the college's labs, facilities, and important contacts.</p>
+        </div>
+
+        <div class="container">
+            <h1>Student Details & Ranks</h1>
+            <a href="edit-student.html">Edit Student Details</a>
+            <div class="department" id="csit"><h2>CSIT Department</h2></div>
+            <div class="department" id="bca"><h2>BCA Department</h2></div>
+            <div class="department" id="bba"><h2>BBA Department</h2></div>
+        </div>
+    </div>
+
+    <script>
+        function loadStudents() {
+            let students = JSON.parse(localStorage.getItem('students')) || [];
+            let departments = { BCA: [], 'BSc Computer Science': [], BBA: [] };
+            students.forEach(s => departments[s.department].push(s));
+            Object.keys(departments).forEach(dept => {
+                let sorted = departments[dept].sort((a, b) => b.marks - a.marks);
+                let html = sorted.map((s, i) => `<p class="student">${s.name} - Marks: ${s.marks} ${i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : ''}</p>`).join('');
+                document.getElementById(dept.toLowerCase().replace(/ /g, '')).innerHTML += html;
+            });
+        }
+        loadStudents();
+    </script>
+</body>
+</html>

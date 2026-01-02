@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Management</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(-45deg, #4e8ee8, #7a6dff, #ff6ac1, #f0e56d);
+            background-size: 400% 400%;
+            animation: waveBg 8s ease-in-out infinite;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        @keyframes waveBg {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        #loading {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        #loading img {
+            width: 150px;
+            height: 150px;
+            animation: zoom 5s ease-in-out infinite;
+        }
+
+        @keyframes zoom {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .loading-text {
+            font-size: 22px;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        .progress-container {
+            width: 80%;
+            height: 30px;
+            background-color: #ddd;
+            margin-top: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: #3498db;
+            text-align: center;
+            line-height: 30px;
+            color: rgba(255, 255, 255, 0.829);
+            border-radius: 15px;
+            transition: width 0.1s;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+
+        .footer a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="loading">
+        <img src="OIP.webp" alt="College Logo"> <!-- Modify with your college logo image -->
+        <div class="loading-text">Loading...</div>
+        
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div id="progress-bar" class="progress-bar">0%</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>For more information, visit our <a href="#">website</a> or contact us at <a href="#">DEVeducation@gmail.com</a>.</p>
+    </div>
+
+    <script>
+        window.onload = function() {
+            let progress = 0;
+            const progressBar = document.getElementById('progress-bar');
+            
+            const interval = setInterval(function() {
+                if (progress < 100) {
+                    progress += 1;  // Increase progress by 1%
+                    progressBar.style.width = progress + '%';
+                    progressBar.innerText = progress + '%';
+                } else {
+                    clearInterval(interval); // Stop once progress reaches 100
+                    setTimeout(function() {
+                        window.location.href = "home.html";  // Redirect to home after loading is complete
+                    }, 500);  // Small delay before redirect
+                }
+            }, 30); // Set interval time to control the speed of progress
+        };
+    </script>
+
+</body>
+</html>

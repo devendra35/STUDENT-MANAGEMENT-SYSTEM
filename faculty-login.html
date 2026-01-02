@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: linear-gradient(-45deg, #4e8ee8, #7a6dff, #ff6ac1, #f0e56d);
+            background-size: 400% 400%;
+            animation: waveBg 8s ease-in-out infinite;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .login-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #2980b9;
+        }
+
+        .back-button, .home-button {
+            position: fixed;
+            bottom: 15px;
+            padding: 10px 20px;
+            background-color: #95a5a6;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s ease-in-out;
+        }
+
+        .back-button:hover, .home-button:hover {
+            background-color: #7f8c8d;
+        }
+
+        .home-button {
+            right: 120px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Faculty Login</h1>
+
+    <div class="login-container">
+        <input type="text" id="faculty-username" placeholder="Username" required>
+        <input type="password" id="faculty-password" placeholder="Password" required>
+        <button onclick="facultyLogin()">Login</button>
+    </div>
+
+    <script>
+        function facultyLogin() {
+            // Faculty usernames for each department
+            const facultyCredentials = {
+                "adilbca": "bca",
+                "rahulbca": "bca",
+                "johnbba": "bba",
+                "alicebba": "bba",
+                "markbcom": "bcom",
+                "janebcom": "bcom",
+                "sarabcomca": "bcomca",
+                "mikeece": "ece",
+                "hannahme": "me"
+            };
+
+            // Get values from input fields
+            const enteredUsername = document.getElementById('faculty-username').value;
+            const enteredPassword = document.getElementById('faculty-password').value;
+
+            // Check if the username exists and the password matches the department code
+            if (facultyCredentials[enteredUsername] && enteredPassword === enteredUsername.slice(-3)) {
+                // Store the department for use in the dashboard
+                localStorage.setItem("username", enteredUsername);
+                localStorage.setItem("department", facultyCredentials[enteredUsername]);
+                alert('Login successful!');
+                window.location.href = 'faculty-dashboard.html'; // Redirect to faculty dashboard
+            } else {
+                alert('Invalid username or password.');
+            }
+        }
+    </script>
+
+    <a href="login.html" class="back-button">Back</a>
+    <a href="home.html" class="home-button">Home</a>
+
+</body>
+</html>

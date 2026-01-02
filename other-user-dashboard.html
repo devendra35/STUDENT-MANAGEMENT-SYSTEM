@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other User Dashboard</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            padding: 20px;
+            margin: 0;
+            height: 100vh;
+            background: url('stc.jpg') no-repeat center center fixed;
+            background-size: cover;
+            backdrop-filter: blur(5%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .contact-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 300px;
+            background: linear-gradient(45deg, #eb733c, #4735b9, #98bbb0, #8d790b);
+            background-size: 100% 100%;
+            animation: containerGradientAnimation 8s ease infinite;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard-container {
+            position: right;
+            top: 80px;
+            left: 350px;
+            max-width: 800px;
+            max-height: 500px;
+            overflow-y: auto;
+            margin: 50px auto 0;
+            padding: 30px;
+            background: linear-gradient(45deg, #115244, #5acdb4, #ab98bb, #79502b);
+            background-size: 400% 400%;
+            animation: containerGradientAnimation 8s ease infinite;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes containerGradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .dashboard-header {
+            text-align: center;
+            color: #81eed6;
+        }
+
+        .info-list,
+        .lab-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 20px 0;
+        }
+
+        .info-list li,
+        .lab-list li {
+            padding: 10px;
+            background-color: #ecf0f1;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .buttons {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .buttons button {
+            padding: 12px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .home-btn {
+            background-color: #cc462e;
+            color: white;
+        }
+
+        .back-btn {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .buttons button:hover {
+            opacity: 0.8;
+        }
+
+        .info-header,
+        .lab-header {
+            font-size: 20px;
+            color: #728eaa;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome, Other User</h1>
+
+    <div class="contact-container">
+        <h3>Contact Details</h3>
+        <ul>
+            <li><strong>Administration Office:</strong> 12345 | admin@college.edu</li>
+            <li><strong>Student Affairs:</strong> 234-5678 | studentaffairs@college.edu</li>
+            <li><strong>Technical Support:</strong> 345-6789 | @college.edu</li>
+        </ul>
+    </div>
+
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h2>Your College Dashboard</h2>
+            <p>Explore details about the college's labs, facilities, and important contacts.</p>
+        </div>
+
+        <div class="info-header">
+            <h3>Important Information</h3>
+        </div>
+        
+        <ul class="info-list">
+            <li>Ensure your personal details are up to date for notifications and updates.</li>
+            <li>Contact the administration for any issues or queries regarding your account.</li>
+            <li>The college conducts regular workshops, seminars, and cultural events. Keep an eye on announcements.</li>
+        </ul>
+
+        <div class="lab-header">
+            <h3>College Labs</h3>
+        </div>
+
+        <ul class="lab-list">
+            <li><strong>Computer Science Lab:</strong> Equipped with modern PCs, programming software, and networking tools.</li>
+            <li><strong>Electronics Lab:</strong> Focused on digital and analog electronics, with breadboards, oscilloscopes, and circuit simulators.</li>
+            <li><strong>Physics Lab:</strong> Includes advanced equipment for physics experiments in mechanics, optics, and electromagnetism.</li>
+        </ul>
+
+        <div class="buttons">
+            <button class="back-btn" onclick="window.location.href='login.html'">Back</button>
+            <button class="home-btn" onclick="window.location.href='home.html'">Home</button>
+        </div>
+    </div>
+
+</body>
+</html>

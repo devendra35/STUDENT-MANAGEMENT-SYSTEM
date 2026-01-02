@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Animated Waving Background */
+        @keyframes waveBg {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            padding: 20px;
+            background: linear-gradient(-45deg, #3b8d99, #6a1b9a, #8e44ad, #3498db);
+            background-size: 300% 300%;
+            animation: waveBg 8s ease-in-out infinite;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: auto;
+            height: 100vh;  /* To make the body scrollable */
+        }
+
+        /* Glass Effect Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(15px);
+            animation: fadeIn 0.8s ease-in-out;
+            overflow-y: auto;
+            max-height: 90vh;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: 600;
+            text-transform: uppercase;
+            animation: slideIn 0.8s ease-in-out;
+        }
+
+        .department-info {
+            margin-top: 20px;
+        }
+
+        h3, h4 {
+            color: #f1f1f1;
+        }
+
+        /* List Styling */
+        .faculty-list, .student-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .faculty-list li, .student-list li {
+            padding: 12px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin-bottom: 8px;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.2s;
+            position: relative;
+            cursor: pointer;
+            text-align: left;
+            font-size: 16px;
+            font-weight: 500;
+            color: white;
+        }
+
+        .faculty-list li:hover, .student-list li:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.02);
+        }
+
+        /* Tooltip Styling */
+        .tooltip {
+            display: none;
+            position: absolute;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 8px;
+            border-radius: 5px;
+            font-size: 14px;
+            width: max-content;
+            min-width: 200px;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -50px;
+            text-align: center;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .faculty-list li:hover .tooltip, .student-list li:hover .tooltip {
+            display: block;
+            opacity: 1;
+            transform: translateX(-50%) translateY(10px);
+        }
+
+        /* Button */
+        .auth-button {
+            background: #ff5733;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .auth-button:hover {
+            background: #c70039;
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Department: BCA</h1>
+        <div class="department-info">
+            <h3>HoD:XYZ</h3>
+            <h4>Faculty Members:</h4>
+            <ul class="faculty-list">
+                <li>Dr.RAM<span class="tooltip">Subject: Data Structures</span></li>
+                <li>Dr.SITA <span class="tooltip">Subject: Operating Systems</span></li>
+                <li>Dr. HARI <span class="tooltip">Subject: Database Management</span></li>
+                <li>Dr.RAJESH<span class="tooltip">Subject: Web Development</span></li>
+                <li>Dr.SHYAM <span class="tooltip">Subject: Cyber Security</span></li>
+                <li>Dr. ABDUL <span class="tooltip">Subject: Software Engineering</span></li>
+                <li>Dr.JEUSES <span class="tooltip">Subject: Artificial Intelligence</span></li>
+            </ul>
+
+            <h4>Students:</h4>
+
+            <ul class="student-list">
+                <!-- Adding random 60 Student Names-->
+                <li>dipen<span class="tooltip">Reg: 23BCA001 | Rank: 3 | Ph: 9876543210</span></li>
+                <li>anas<span class="tooltip">Reg: 23BCA002 | Rank: 6 | Ph: 9876543211</span></li>
+                <li>Johnson <span class="tooltip">Reg: 23BCA003 | Rank: 2 | Ph: 9876543212</span></li>
+                <li>rahul <span class="tooltip">Reg: 23BCA004 | Rank: 1 | Ph: 9876543213</span></li>
+                <li>sadheesh<span class="tooltip">Reg: 23BCA005 | Rank: 8 | Ph: 9876543214</span></li>
+                <li>rajesh <span class="tooltip">Reg: 23BCA006 | Rank: 5 | Ph: 9876543215</span></li>
+                <li>akshay <span class="tooltip">Reg: 23BCA007 | Rank: 7 | Ph: 9876543216</span></li>
+                <li>afsar<span class="tooltip">Reg: 23BCA008 | Rank: 4 | Ph: 9876543217</span></li>
+                <li>Student 9 <span class="tooltip">Reg: 23BCA009 | Rank: 10 | Ph: 9876543218</span></li>
+                <li>Student 10 <span class="tooltip">Reg: 23BCA010 | Rank: 11 | Ph: 9876543219</span></li>
+                <li>Student 11 <span class="tooltip">Reg: 23BCA011 | Rank: 12 | Ph: 9876543220</span></li>
+                <li>Student 12 <span class="tooltip">Reg: 23BCA012 | Rank: 13 | Ph: 9876543221</span></li>
+                <li>Student 13 <span class="tooltip">Reg: 23BCA013 | Rank: 14 | Ph: 9876543222</span></li>
+                <li>Student 14 <span class="tooltip">Reg: 23BCA014 | Rank: 15 | Ph: 9876543223</span></li>
+                <li>Student 15 <span class="tooltip">Reg: 23BCA015 | Rank: 16 | Ph: 9876543224</span></li>
+                <!-- Add additional students till you reach 60 -->
+                <li>Student 16 <span class="tooltip">Reg: 23BCA016 | Rank: 17 | Ph: 9876543225</span></li>
+                <li>Student 17 <span class="tooltip">Reg: 23BCA017 | Rank: 18 | Ph: 9876543226</span></li>
+                <li>Student 18 <span class="tooltip">Reg: 23BCA018 | Rank: 19 | Ph: 9876543227</span></li>
+                <li>Student 19 <span class="tooltip">Reg: 23BCA019 | Rank: 20 | Ph: 9876543228</span></li>
+                <li>Student 20 <span class="tooltip">Reg: 23BCA020 | Rank: 21 | Ph: 9876543229</span></li>
+                <li>Student 21 <span class="tooltip">Reg: 23BCA021 | Rank: 22 | Ph: 9876543230</span></li>
+                <li>Student 22 <span class="tooltip">Reg: 23BCA022 | Rank: 23 | Ph: 9876543231</span></li>
+                <li>Student 23 <span class="tooltip">Reg: 23BCA023 | Rank: 24 | Ph: 9876543232</span></li>
+                <li>Student 24 <span class="tooltip">Reg: 23BCA024 | Rank: 25 | Ph: 9876543233</span></li>
+                <li>Student 25 <span class="tooltip">Reg: 23BCA025 | Rank: 26 | Ph: 9876543234</span></li>
+                <li>Student 26 <span class="tooltip">Reg: 23BCA026 | Rank: 27 | Ph: 9876543235</span></li>
+                <li>Student 27 <span class="tooltip">Reg: 23BCA027 | Rank: 28 | Ph: 9876543236</span></li>
+                <li>Student 28 <span class="tooltip">Reg: 23BCA028 | Rank: 29 | Ph: 9876543237</span></li>
+                <li>Student 29 <span class="tooltip">Reg: 23BCA029 | Rank: 30 | Ph: 9876543238</span></li>
+                <li>Student 30 <span class="tooltip">Reg: 23BCA030 | Rank: 31 | Ph: 9876543239</span></li>
+                <li>Student 31 <span class="tooltip">Reg: 23BCA031 | Rank: 32 | Ph: 9876543240</span></li>
+                <li>Student 32 <span class="tooltip">Reg: 23BCA032 | Rank: 33 | Ph: 9876543241</span></li>
+                <li>Student 33 <span class="tooltip">Reg: 23BCA033 | Rank: 34 | Ph: 9876543242</span></li>
+                <li>Student 34 <span class="tooltip">Reg: 23BCA034 | Rank: 35 | Ph: 9876543243</span></li>
+                <li>Student 35 <span class="tooltip">Reg: 23BCA035 | Rank: 36 | Ph: 9876543244</span></li>
+                <li>Student 36 <span class="tooltip">Reg: 23BCA036 | Rank: 37 | Ph: 9876543245</span></li>
+                <li>Student 37 <span class="tooltip">Reg: 23BCA037 | Rank: 38 | Ph: 9876543246</span></li>
+                <li>Student 38 <span class="tooltip">Reg: 23BCA038 | Rank: 39 | Ph: 9876543247</span></li>
+                <li>Student 39 <span class="tooltip">Reg: 23BCA039 | Rank: 40 | Ph: 9876543248</span></li>
+                <li>Student 40 <span class="tooltip">Reg: 23BCA040 | Rank: 41 | Ph: 9876543249</span></li>
+                <li>Student 41 <span class="tooltip">Reg: 23BCA041 | Rank: 42 | Ph: 9876543250</span></li>
+                <li>Student 42 <span class="tooltip">Reg: 23BCA042 | Rank: 43 | Ph: 9876543251</span></li>
+                <li>Student 43 <span class="tooltip">Reg: 23BCA043 | Rank: 44 | Ph: 9876543252</span></li>
+                <li>Student 44 <span class="tooltip">Reg: 23BCA044 | Rank: 45 | Ph: 9876543253</span></li>
+                <li>Student 45 <span class="tooltip">Reg: 23BCA045 | Rank: 46 | Ph: 9876543254</span></li>
+                <li>Student 46 <span class="tooltip">Reg: 23BCA046 | Rank: 47 | Ph: 9876543255</span></li>
+                <li>Student 47 <span class="tooltip">Reg: 23BCA047 | Rank: 48 | Ph: 9876543256</span></li>
+                <li>Student 48 <span class="tooltip">Reg: 23BCA048 | Rank: 49 | Ph: 9876543257</span></li>
+                <li>Student 49 <span class="tooltip">Reg: 23BCA049 | Rank: 50 | Ph: 9876543258</span></li>
+                <li>Student 50 <span class="tooltip">Reg: 23BCA050 | Rank: 51 | Ph: 9876543259</span></li>
+                <li>Student 51 <span class="tooltip">Reg: 23BCA051 | Rank: 52 | Ph: 9876543260</span></li>
+                <li>Student 52 <span class="tooltip">Reg: 23BCA052 | Rank: 53 | Ph: 9876543261</span></li>
+                <li>Student 53 <span class="tooltip">Reg: 23BCA053 | Rank: 54 | Ph: 9876543262</span></li>
+                <li>Student 54 <span class="tooltip">Reg: 23BCA054 | Rank: 55 | Ph: 9876543263</span></li>
+                <li>Student 55 <span class="tooltip">Reg: 23BCA055 | Rank: 56 | Ph: 9876543264</span></li>
+                <li>Student 56 <span class="tooltip">Reg: 23BCA056 | Rank: 57 | Ph: 9876543265</span></li>
+                <li>Student 57 <span class="tooltip">Reg: 23BCA057 | Rank: 58 | Ph: 9876543266</span></li>
+                <li>Student 58 <span class="tooltip">Reg: 23BCA058 | Rank: 59 | Ph: 9876543267</span></li>
+                <li>Student 59 <span class="tooltip">Reg: 23BCA059 | Rank: 60 | Ph: 9876543268</span></li>
+                <li>Student 60 <span class="tooltip">Reg: 23BCA060 | Rank: 61 | Ph: 9876543269</span></li>
+            </ul>
+
+            <button class="auth-button" onclick="authenticateUser()">Authenticate & Edit</button>
+        </div>
+    </div>
+
+    <script>
+        function authenticateUser() {
+            const isAuthenticated = true;
+            if (isAuthenticated) {
+                alert('Authentication successful! You can now edit student details.');
+                window.location.href = 'edit-student.html';
+            } else {
+                alert('Authentication failed.');
+            }
+        }
+    </script>
+</body>
+</html>

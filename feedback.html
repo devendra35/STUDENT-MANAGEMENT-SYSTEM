@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Feedback</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #699eda;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: linear-gradient(45deg, #9091cc, #6a5acd, #ab98bb, #9f96d1);
+            background-size: 400% 400%;
+            animation: containerGradientAnimation 8s ease infinite;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+           
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            resize: none;
+            font-size: 16px;
+        }
+        .button {
+            background-color: #7491f0;
+            color: rgb(3, 34, 6);
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Student Feedback</h1>
+        <p>Write your feedback and send it to the administration.</p>
+        
+        <textarea id="feedback" placeholder="Write your feedback here..."></textarea>
+        
+       
+        <button class="button" onclick="sendFeedback()">Submit Feedback</button>
+        
+    </div>
+
+    <script>
+        function sendFeedback() {
+            let feedbackText = document.getElementById("feedback").value;
+            
+            if (feedbackText.trim() === "") {
+                alert("Please write some feedback before submitting.");
+                return;
+            }
+
+            let email = "23bca043@stc.ac.in";
+            let subject = "Student Feedback Submission";
+            let mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(feedbackText)}`;
+            
+            window.location.href = mailtoLink;
+        }
+    </script>
+
+</body>
+</html>

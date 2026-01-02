@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(-45deg, #1e3c72, #2a5298, #6dd5ed, #2193b0);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            overflow: hidden;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .department-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .department-list li {
+            padding: 10px;
+            background-color: #ecf0f1;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .department-list li:hover {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .buttons button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .home-btn {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        .back-btn {
+            background-color: #e74c3c;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Faculty Dashboard</h1>
+
+    <h2>Select Department</h2>
+
+    <ul class="department-list" id="department-list">
+        <!-- Department options will be populated here dynamically -->
+    </ul>
+
+    <div class="buttons">
+        <button class="back-btn" onclick="history.back()">Back</button>
+        <button class="home-btn" onclick="window.location.href='home.html'">Home</button>
+    </div>
+
+    <script>
+        // Get the logged-in faculty's username and department from localStorage
+        const username = localStorage.getItem("username") || "";
+        const department = localStorage.getItem("department") || "";
+
+        // List of all departments
+        const allDepartments = ["bca", "bba", "bcom", "bcomca", "ece", "me"];
+
+        // List of department permissions: Which username is allowed to access which department
+        const departmentPermissions = {
+            "bca": ["adilbca", "rahulbca"],
+            "bba": ["johnbba", "alicebba"],
+            "bcom": ["markbcom", "janebcom"],
+            "bcomca": ["sarabcomca"],
+            "ece": ["mikeece"],
+            "me": ["hannahme"]
+        };
+
+        // Get the department list element
+        const departmentList = document.getElementById("department-list");
+
+        // Loop through all departments and display them
+        allDepartments.forEach(departmentName => {
+            const listItem = document.createElement("li");
+            listItem.textContent = departmentName.toUpperCase();
+
+            // Check if the logged-in faculty has access to the current department
+            if (departmentPermissions[departmentName] && departmentPermissions[departmentName].includes(username)) {
+                // If the faculty is authorized, allow them to click and navigate to the department details
+                listItem.onclick = () => navigateToDepartment(departmentName);
+            } else {
+                // If the faculty doesn't have access, disable the click event and show a "restricted" message
+                listItem.style.cursor = "not-allowed";
+                listItem.style.backgroundColor = "#bdc3c7";
+            }
+
+            departmentList.appendChild(listItem);
+        });
+
+        // Function to navigate to department-specific page
+        function navigateToDepartment(department) {
+            window.location.href = `department-details.html`;
+        }
+    </script>
+
+</body>
+</html>

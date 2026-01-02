@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Home</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        /* Full-screen blurred background image */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url() no-repeat center center/cover;
+            filter: blur(5px); /* 25% blur effect */
+            opacity: 0.085; /* Reduce visibility to 75% */
+            z-index: -1;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Header */
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        /* Left Side Info Panel */
+        .info-panel {
+            position: absolute;
+            left: 20px;
+            top: 80px;
+            width: 300px;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .info-panel h2, .info-panel h3 {
+            color: #ddd;
+        }
+        .info-panel:hover {
+            transform: scale(1.05);
+            background-color: rgb(190, 79, 79);
+        }
+
+        .info-panel h2, .info-panel h3 {
+            color: #587694;
+        }
+
+
+        .course-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .course-list li {
+            padding: 8px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin-bottom: 8px;
+            border-radius: 5px;
+            color: white;
+        }
+
+        /* Center Box */
+        .center-box {
+            width: 800px;
+            height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            top: 55%;
+            left: 60%;
+            transform: translate(-40%, -50%);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            padding: 20px;
+        }
+
+        .college-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .college-image:hover {
+            transform: scale(1.1);
+        }
+
+        .center-box p {
+            color: #222;
+            font-size: 20px;
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">Welcome to DEVEN ACCEDEMY.</div>
+
+
+    <!-- Left Side Contact & Courses -->
+    <div class="info-panel">
+        <h2>College Details</h2>
+        <p><strong>Location:</strong> Biratnagar.</p>
+        <p><strong>Contact:</strong> 03123456 | Email:collage123@gmail.com</p>
+
+        <h3>Courses Offered</h3>
+        <ul class="course-list">
+            <li>Bachelor of Science in Computer Science</li>
+            <li>BIM</li>
+            <li>Bachelor in Computer Application</li>
+            <li>BBS</li>
+        </ul>
+    </div>
+
+    <!-- Center Box with College Image -->
+    <div class="center-box">
+        <a href="login.html">
+            <img src="OIP.webp" alt="College Campus" class="college-image">
+            <p>For More Details CLICK HERE</p>
+        </a>
+    </div>
+
+</body>
+</html>
